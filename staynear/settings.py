@@ -56,7 +56,7 @@ ROOT_URLCONF = 'staynear.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'main' / 'template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
