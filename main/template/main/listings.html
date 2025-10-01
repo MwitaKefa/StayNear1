@@ -31,15 +31,32 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <div class="container mx-auto px-4 py-8">
-        <!-- Header -->
-        <header class="mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Discover Amazing Places</h1>
-            <p class="text-gray-600">Find your perfect place from our curated collection</p>
-        </header>
+    {% load static %}
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 mb-8">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-home text-blue-600 text-2xl"></i>
+                <h1 class="text-xl font-bold text-blue-600">StayNear Homes</h1>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="{% url 'home' %}" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="{% url 'listings' %}" class="text-gray-700 hover:text-blue-600 font-medium">Listings</a>
+                <a href="{% url 'landlords' %}" class="text-gray-700 hover:text-blue-600 font-medium">For Landlords</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Sign In</button>
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
         <!-- Search and Filter Section -->
-        <div class="mb-8">
+        <div class="mb-8 px-4">
             <div class="flex flex-col md:flex-row gap-4 mb-6">
                 <!-- Search Bar -->
                 <div class="relative flex-grow">
@@ -120,7 +137,7 @@
         </div>
 
         <!-- Listings Grid -->
-        <div class="mb-8 flex justify-between items-center">
+        <div class="mb-8 px-4 flex justify-between items-center">
             <h2 class="text-xl font-semibold text-gray-800">Featured Listings</h2>
             <div class="flex items-center gap-2">
                 <span class="text-sm text-gray-600">Sort by:</span>
@@ -133,7 +150,13 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Interactive Map View -->
+        <div class="mb-10 px-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Map View</h3>
+            <div id="map" class="w-full h-80 rounded-lg shadow-md"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4">
             <!-- Listing Card 1 -->
             <div class="listing-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
                 <div class="relative">
@@ -321,8 +344,8 @@
             </div>
         </div>
 
-        <!-- Pagination -->
-        <div class="flex justify-center mt-10">
+    <!-- Pagination -->
+    <div class="flex justify-center mt-10 px-4">
             <nav class="flex items-center gap-1">
                 <button class="px-3 py-1 rounded-md border hover:bg-gray-100">
                     <i class="fas fa-chevron-left"></i>
@@ -339,7 +362,109 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-home text-blue-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold">StayNear Homes</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">AI-powered rental discovery platform transforming Kenya's real estate market.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">For Tenants</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Browse Listings</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tenant Reviews</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Rental Tips</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">For Landlords</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">List Your Property</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Verification Process</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Landlord Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>
+                            Nairobi, Kenya
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-2 text-blue-400"></i>
+                            <span>+254 700 123456</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2 text-blue-400"></i>
+                            <span>info@staynear.co.ke</span>
+                        </li>
+                    </ul>
+                    <h4 class="text-lg font-bold mt-6 mb-2">Download Our App</h4>
+                    <div class="flex space-x-2">
+                        <button class="bg-black text-white px-3 py-2 rounded flex items-center">
+                            <i class="fab fa-apple mr-2"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Download on the</div>
+                                <div class="font-bold text-sm">App Store</div>
+                            </div>
+                        </button>
+                        <button class="bg-black text-white px-3 py-2 rounded flex items-center">
+                            <i class="fab fa-google-play mr-2"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Get it on</div>
+                                <div class="font-bold text-sm">Google Play</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2023 StayNear Homes. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet.js for interactive map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
+        // Initialize Leaflet map
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('map').setView([-1.286389, 36.817223], 12); // Nairobi default
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Example property markers
+            var listings = [
+                { name: 'Modern Family House', lat: -1.3081, lng: 36.8065 },
+                { name: 'Luxury Downtown Apartment', lat: -1.2921, lng: 36.8219 },
+                { name: 'Cozy Countryside Cottage', lat: -1.3346, lng: 36.7924 },
+                { name: 'Beachfront Villa', lat: -1.2654, lng: 36.8000 }
+            ];
+            listings.forEach(function(listing) {
+                L.marker([listing.lat, listing.lng]).addTo(map)
+                    .bindPopup('<b>' + listing.name + '</b>');
+            });
+        });
         // Toggle filter section on mobile
         document.getElementById('filterToggle').addEventListener('click', function() {
             const filterSection = document.getElementById('filterSection');
@@ -354,7 +479,6 @@
                 filterButtons.forEach(btn => btn.classList.remove('active-filter'));
                 // Add active class to clicked button
                 this.classList.add('active-filter');
-                
                 // Here you would normally filter the listings
                 // For this demo, we'll just log the filter type
                 console.log('Filter by:', this.dataset.filter);

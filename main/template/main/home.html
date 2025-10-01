@@ -20,29 +20,15 @@
             </div>
             
             <div class="hidden md:flex space-x-6">
-                <a href="{% url 'home' %}" class="text-gray-700 hover:text-blue-600 font-medium english-text">Home</a>
-                <a href="{% url 'listings' %}" class="text-gray-700 hover:text-blue-600 font-medium english-text">Listings</a>
-                <a href="{% url 'landlords' %}" class="text-gray-700 hover:text-blue-600 font-medium english-text">For Landlords</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium english-text">About</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium english-text">Contact</a>
-
-                <a href="{% url 'home' %}" class="text-gray-700 hover:text-blue-600 font-medium swahili-text">Nyumbani</a>
-                <a href="{% url 'listings' %}" class="text-gray-700 hover:text-blue-600 font-medium swahili-text">Mali</a>
-                <a href="{% url 'landlords' %}" class="text-gray-700 hover:text-blue-600 font-medium swahili-text">Kwa Wenyenchi</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium swahili-text">Kuhusu</a>
-                <a href="#" class="text-gray-700 hover:text-blue-600 font-medium swahili-text">Mawasiliano</a>
+                <a href="{% url 'home' %}" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="{% url 'listings' %}" class="text-gray-700 hover:text-blue-600 font-medium">Listings</a>
+                <a href="{% url 'landlords' %}" class="text-gray-700 hover:text-blue-600 font-medium">For Landlords</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
             </div>
             
             <div class="flex items-center space-x-4">
-                <label class="swahili-toggle">
-                    <input type="checkbox" id="language-toggle">
-                    <span class="slider"></span>
-                    <span class="absolute -left-8 english-text">EN</span>
-                    <span class="absolute -right-8 swahili-text">SW</span>
-                </label>
-                
-                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 english-text">Sign In</button>
-                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 swahili-text">Ingia</button>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Sign In</button>
                 
                 <button class="md:hidden text-gray-700">
                     <i class="fas fa-bars text-xl"></i>
@@ -55,18 +41,11 @@
     <section class="bg-blue-600 text-white py-16">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-8 md:mb-0">
-                <h1 class="text-4xl font-bold mb-4 english-text">Find Your Perfect Rental Home in Kenya</h1>
-                <h1 class="text-4xl font-bold mb-4 swahili-text">Tafuta Nyumba Bora ya Kukodisha Kenya</h1>
-                
-                <p class="text-xl mb-6 english-text">AI-powered platform connecting you with verified rentals within 1km of your preferred location</p>
-                <p class="text-xl mb-6 swahili-text">Jukwaa linalotumia AI kukuunganisha na nyumba za kukodisha zilizothibitishwa ndani ya kilomita 1 kutoka eneo unalopendelea</p>
-                
+                <h1 class="text-4xl font-bold mb-4">Find Your Perfect Rental Home in Kenya</h1>
+                <p class="text-xl mb-6">AI-powered platform connecting you with verified rentals within 1km of your preferred location</p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <button class="bg-white text-blue-600 px-6 py-3 rounded-md font-bold hover:bg-gray-100 english-text">Find Nearby Rentals</button>
-                    <button class="bg-white text-blue-600 px-6 py-3 rounded-md font-bold hover:bg-gray-100 swahili-text">Tafuta Nyumba Karibu</button>
-                    
-                    <button class="bg-transparent border-2 border-white px-6 py-3 rounded-md font-bold hover:bg-blue-700 english-text">List Your Property</button>
-                    <button class="bg-transparent border-2 border-white px-6 py-3 rounded-md font-bold hover:bg-blue-700 swahili-text">Weka Mali Yako</button>
+                    <button class="bg-white text-blue-600 px-6 py-3 rounded-md font-bold hover:bg-gray-100">Find Nearby Rentals</button>
+                    <button class="bg-transparent border-2 border-white px-6 py-3 rounded-md font-bold hover:bg-blue-700">List Your Property</button>
                 </div>
             </div>
             
@@ -75,8 +54,7 @@
                     <div class="bg-black bg-opacity-50 h-full flex items-center justify-center">
                         <button class="bg-white text-blue-600 px-6 py-3 rounded-md font-bold hover:bg-gray-100 flex items-center">
                             <i class="fas fa-map-marker-alt mr-2"></i>
-                            <span class="english-text">Enable Location</span>
-                            <span class="swahili-text">Washa Eneo</span>
+                            Enable Location
                         </button>
                     </div>
                 </div>
@@ -90,84 +68,61 @@
             <div class="bg-white rounded-lg shadow-md p-6 -mt-12 relative z-10">
                 <div class="flex flex-col md:flex-row gap-4">
                     <div class="flex-1">
-                        <label class="block text-gray-700 mb-2 english-text">Search by location</label>
-                        <label class="block text-gray-700 mb-2 swahili-text">Tafuta kwa eneo</label>
+                        <label class="block text-gray-700 mb-2">Search by location</label>
                         <div class="relative">
-                            <input type="text" placeholder="Enter landmark or area" class="w-full p-3 border border-gray-300 rounded-md pl-10 english-text">
-                            <input type="text" placeholder="Weka alama au eneo" class="w-full p-3 border border-gray-300 rounded-md pl-10 swahili-text">
+                            <input type="text" placeholder="Enter landmark or area" class="w-full p-3 border border-gray-300 rounded-md pl-10">
                             <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
                         </div>
                     </div>
                     
                     <div class="flex-1">
-                        <label class="block text-gray-700 mb-2 english-text">Property Type</label>
-                        <label class="block text-gray-700 mb-2 swahili-text">Aina ya Nyumba</label>
+                        <label class="block text-gray-700 mb-2">Property Type</label>
                         <select class="w-full p-3 border border-gray-300 rounded-md">
-                            <option class="english-text">All Types</option>
-                            <option class="english-text">Apartment</option>
-                            <option class="english-text">House</option>
-                            <option class="english-text">Bedsitter</option>
-                            <option class="english-text">Single Room</option>
-                            <option class="english-text">Commercial</option>
-                            
-                            <option class="swahili-text">Aina Zote</option>
-                            <option class="swahili-text">Ghorofa</option>
-                            <option class="swahili-text">Nyumba</option>
-                            <option class="swahili-text">Bedsitter</option>
-                            <option class="swahili-text">Chumba Kimoja</option>
-                            <option class="swahili-text">Biashara</option>
+                            <option>All Types</option>
+                            <option>Apartment</option>
+                            <option>House</option>
+                            <option>Bedsitter</option>
+                            <option>Single Room</option>
+                            <option>Commercial</option>
                         </select>
                     </div>
                     
                     <div class="flex-1">
-                        <label class="block text-gray-700 mb-2 english-text">Price Range (KSh)</label>
-                        <label class="block text-gray-700 mb-2 swahili-text">Bei (KSh)</label>
+                        <label class="block text-gray-700 mb-2">Price Range (KSh)</label>
                         <select class="w-full p-3 border border-gray-300 rounded-md">
-                            <option class="english-text">Any Price</option>
-                            <option class="english-text">Under 5,000</option>
-                            <option class="english-text">5,000 - 10,000</option>
-                            <option class="english-text">10,000 - 20,000</option>
-                            <option class="english-text">20,000 - 50,000</option>
-                            <option class="english-text">Over 50,000</option>
-                            
-                            <option class="swahili-text">Bei Yoyote</option>
-                            <option class="swahili-text">Chini ya 5,000</option>
-                            <option class="swahili-text">5,000 - 10,000</option>
-                            <option class="swahili-text">10,000 - 20,000</option>
-                            <option class="swahili-text">20,000 - 50,000</option>
-                            <option class="swahili-text">Zaidi ya 50,000</option>
+                            <option>Any Price</option>
+                            <option>Under 5,000</option>
+                            <option>5,000 - 10,000</option>
+                            <option>10,000 - 20,000</option>
+                            <option>20,000 - 50,000</option>
+                            <option>Over 50,000</option>
                         </select>
                     </div>
                     
                     <div class="flex items-end">
-                        <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 w-full english-text">Search</button>
-                        <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 w-full swahili-text">Tafuta</button>
+                        <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 w-full">Search</button>
                     </div>
                 </div>
                 
                 <div class="mt-4 flex flex-wrap gap-4">
                     <button class="flex items-center text-blue-600 bg-blue-100 px-4 py-2 rounded-full hover:bg-blue-200">
                         <i class="fas fa-location-arrow mr-2"></i>
-                        <span class="english-text">Show rentals within 1km of me</span>
-                        <span class="swahili-text">Onyesha nyumba ndani ya km 1</span>
+                        Show rentals within 1km of me
                     </button>
                     
                     <button class="flex items-center text-gray-700 bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200">
                         <i class="fas fa-bus mr-2"></i>
-                        <span class="english-text">Near public transport</span>
-                        <span class="swahili-text">Karibu na usafiri</span>
+                        Near public transport
                     </button>
                     
                     <button class="flex items-center text-gray-700 bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200">
                         <i class="fas fa-shield-alt mr-2"></i>
-                        <span class="english-text">Verified listings only</span>
-                        <span class="swahili-text">Mali zilizothibitishwa</span>
+                        Verified listings only
                     </button>
                     
                     <button class="flex items-center text-gray-700 bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200">
                         <i class="fas fa-calendar-alt mr-2"></i>
-                        <span class="english-text">Available now</span>
-                        <span class="swahili-text">Inapatikana sasa</span>
+                        Available now
                     </button>
                 </div>
             </div>
@@ -178,11 +133,9 @@
     <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 english-text">Featured Properties Near You</h2>
-                <h2 class="text-2xl font-bold text-gray-800 swahili-text">Mali Maarufu Karibu Nawe</h2>
+                <h2 class="text-2xl font-bold text-gray-800">Featured Properties Near You</h2>
                 
-                <a href="#" class="text-blue-600 hover:underline english-text">View all</a>
-                <a href="#" class="text-blue-600 hover:underline swahili-text">Onyesha zote</a>
+                <a href="#" class="text-blue-600 hover:underline">View all</a>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -201,13 +154,11 @@
                     
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-lg english-text">Modern 2-Bedroom Apartment</h3>
-                            <h3 class="font-bold text-lg swahili-text">Ghorofa ya Vyumba 2</h3>
+                            <h3 class="font-bold text-lg">Modern 2-Bedroom Apartment</h3>
                             <p class="text-blue-600 font-bold">KSh 25,000</p>
                         </div>
                         
-                        <p class="text-gray-600 mt-1 english-text">Kilimani, Nairobi</p>
-                        <p class="text-gray-600 mt-1 swahili-text">Kilimani, Nairobi</p>
+                        <p class="text-gray-600 mt-1">Kilimani, Nairobi</p>
                         
                         <div class="flex mt-3 text-sm text-gray-500">
                             <div class="flex items-center mr-4">
@@ -220,8 +171,7 @@
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-vector-square mr-1"></i>
-                                <span class="english-text">85 sqm</span>
-                                <span class="swahili-text">85 m²</span>
+                                85 sqm
                             </div>
                         </div>
                         
@@ -230,8 +180,7 @@
                                 <i class="fas fa-star text-yellow-400 mr-1"></i>
                                 <span class="text-gray-700">4.8 (24)</span>
                             </div>
-                            <button class="text-blue-600 hover:underline english-text">View Details</button>
-                            <button class="text-blue-600 hover:underline swahili-text">Angalia Maelezo</button>
+                            <button class="text-blue-600 hover:underline">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -251,13 +200,11 @@
                     
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-lg english-text">Spacious 3-Bedroom House</h3>
-                            <h3 class="font-bold text-lg swahili-text">Nyumba ya Vyumba 3</h3>
+                            <h3 class="font-bold text-lg">Spacious 3-Bedroom House</h3>
                             <p class="text-blue-600 font-bold">KSh 45,000</p>
                         </div>
                         
-                        <p class="text-gray-600 mt-1 english-text">Lavington, Nairobi</p>
-                        <p class="text-gray-600 mt-1 swahili-text">Lavington, Nairobi</p>
+                        <p class="text-gray-600 mt-1">Lavington, Nairobi</p>
                         
                         <div class="flex mt-3 text-sm text-gray-500">
                             <div class="flex items-center mr-4">
@@ -270,8 +217,7 @@
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-vector-square mr-1"></i>
-                                <span class="english-text">120 sqm</span>
-                                <span class="swahili-text">120 m²</span>
+                                120 sqm
                             </div>
                         </div>
                         
@@ -280,8 +226,7 @@
                                 <i class="fas fa-star text-yellow-400 mr-1"></i>
                                 <span class="text-gray-700">4.9 (18)</span>
                             </div>
-                            <button class="text-blue-600 hover:underline english-text">View Details</button>
-                            <button class="text-blue-600 hover:underline swahili-text">Angalia Maelezo</button>
+                            <button class="text-blue-600 hover:underline">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -301,13 +246,11 @@
                     
                     <div class="p-4">
                         <div class="flex justify-between items-start">
-                            <h3 class="font-bold text-lg english-text">Cozy Bedsitter</h3>
-                            <h3 class="font-bold text-lg swahili-text">Bedsitter</h3>
+                            <h3 class="font-bold text-lg">Cozy Bedsitter</h3>
                             <p class="text-blue-600 font-bold">KSh 12,000</p>
                         </div>
                         
-                        <p class="text-gray-600 mt-1 english-text">Westlands, Nairobi</p>
-                        <p class="text-gray-600 mt-1 swahili-text">Westlands, Nairobi</p>
+                        <p class="text-gray-600 mt-1">Westlands, Nairobi</p>
                         
                         <div class="flex mt-3 text-sm text-gray-500">
                             <div class="flex items-center mr-4">
@@ -320,8 +263,7 @@
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-vector-square mr-1"></i>
-                                <span class="english-text">30 sqm</span>
-                                <span class="swahili-text">30 m²</span>
+                                30 sqm
                             </div>
                         </div>
                         
@@ -330,8 +272,7 @@
                                 <i class="fas fa-star text-yellow-400 mr-1"></i>
                                 <span class="text-gray-700">4.5 (32)</span>
                             </div>
-                            <button class="text-blue-600 hover:underline english-text">View Details</button>
-                            <button class="text-blue-600 hover:underline swahili-text">Angalia Maelezo</button>
+                            <button class="text-blue-600 hover:underline">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -342,38 +283,31 @@
     <!-- How It Works -->
     <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800 english-text">How StayNear Works</h2>
-            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800 swahili-text">StayNear Inavyofanya Kazi</h2>
+            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800">How StayNear Works</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="text-center">
                     <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2 english-text">1. Share Your Location</h3>
-                    <h3 class="font-bold text-lg mb-2 swahili-text">1. Sambaza Eneo Lako</h3>
-                    <p class="text-gray-600 english-text">Allow us to access your location to find rentals within 1km radius</p>
-                    <p class="text-gray-600 swahili-text">Ruhusu kutumia eneo lako kutafuta nyumba ndani ya kilomita 1</p>
+                    <h3 class="font-bold text-lg mb-2">1. Share Your Location</h3>
+                    <p class="text-gray-600">Allow us to access your location to find rentals within 1km radius</p>
                 </div>
                 
                 <div class="text-center">
                     <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-search text-blue-600 text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2 english-text">2. Browse Verified Listings</h3>
-                    <h3 class="font-bold text-lg mb-2 swahili-text">2. Chunguza Mali Zilizothibitishwa</h3>
-                    <p class="text-gray-600 english-text">View available properties with photos, prices, and tenant reviews</p>
-                    <p class="text-gray-600 swahili-text">Angalia nyumba zilizopo pamoja na picha, bei, na maoni ya wakodishi</p>
+                    <h3 class="font-bold text-lg mb-2">2. Browse Verified Listings</h3>
+                    <p class="text-gray-600">View available properties with photos, prices, and tenant reviews</p>
                 </div>
                 
                 <div class="text-center">
                     <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-home text-blue-600 text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-lg mb-2 english-text">3. Connect & Move In</h3>
-                    <h3 class="font-bold text-lg mb-2 swahili-text">3. Ungana & Hamia</h3>
-                    <p class="text-gray-600 english-text">Contact the landlord directly and arrange viewings</p>
-                    <p class="text-gray-600 swahili-text">Wasiliana na mwenye nyumba moja kwa moja na kupanga kutembelea</p>
+                    <h3 class="font-bold text-lg mb-2">3. Connect & Move In</h3>
+                    <p class="text-gray-600">Contact the landlord directly and arrange viewings</p>
                 </div>
             </div>
         </div>
@@ -382,47 +316,38 @@
     <!-- Why Choose Us -->
     <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800 english-text">Why Choose StayNear Homes</h2>
-            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800 swahili-text">Kwa Nini Kuchagua StayNear Homes</h2>
+            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800">Why Choose StayNear Homes</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <i class="fas fa-check-circle text-blue-600 text-3xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2 english-text">Verified Listings</h3>
-                    <h3 class="font-bold text-lg mb-2 swahili-text">Mali Zilizothibitishwa</h3>
-                    <p class="text-gray-600 english-text">All properties are verified to ensure they exist and are available</p>
-                    <p class="text-gray-600 swahili-text">Nyumba zote zimehakikiwa kuhakikisha zipo na zinapatikana</p>
+                    <h3 class="font-bold text-lg mb-2">Verified Listings</h3>
+                    <p class="text-gray-600">All properties are verified to ensure they exist and are available</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <i class="fas fa-map-marked-alt text-blue-600 text-3xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2 english-text">Hyper-Local Search</h3>
-                    <h3 class="font-bold text-lg mb-2 swahili-text">Utafutaji wa Karibu</h3>
-                    <p class="text-gray-600 english-text">Find rentals within 1km of your preferred location</p>
-                    <p class="text-gray-600 swahili-text">Tafuta nyumba ndani ya kilomita 1 kutoka eneo unalopendelea</p>
+                    <h3 class="font-bold text-lg mb-2">Hyper-Local Search</h3>
+                    <p class="text-gray-600">Find rentals within 1km of your preferred location</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <i class="fas fa-shield-alt text-blue-600 text-3xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2 english-text">Scam Protection</h3>
-                    <h3 class="font-bold text-lg mb-2 swahili-text">Kinga Dhidi ya Ujanja</h3>
-                    <p class="text-gray-600 english-text">AI-powered scam detection to protect you from fraud</p>
-                    <p class="text-gray-600 swahili-text">Utambuzi wa ujanja unaotumia AI kukulinda dhidi ya udanganyifu</p>
+                    <h3 class="font-bold text-lg mb-2">Scam Protection</h3>
+                    <p class="text-gray-600">AI-powered scam detection to protect you from fraud</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <i class="fas fa-comments text-blue-600 text-3xl mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2 english-text">Real Tenant Reviews</h3>
-                    <h3 class="font-bold text-lg mb-2 swahili-text">Maoni ya Wakodishi</h3>
-                    <p class="text-gray-600 english-text">Read honest reviews from current and past tenants</p>
-                    <p class="text-gray-600 swahili-text">Soma maoni halisi kutoka kwa wakodishi wa sasa na wa zamani</p>
+                    <h3 class="font-bold text-lg mb-2">Real Tenant Reviews</h3>
+                    <p class="text-gray-600">Read honest reviews from current and past tenants</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="py-12 bg-white">
+    <section id="about" class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="md:w-1/2">
@@ -430,40 +355,30 @@
                          alt="About StayNear" class="rounded-lg shadow-lg w-full">
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="text-2xl font-bold mb-6 text-gray-800 english-text">About StayNear Homes</h2>
-                    <h2 class="text-2xl font-bold mb-6 text-gray-800 swahili-text">Kuhusu StayNear Homes</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-gray-800">About StayNear Homes</h2>
                     
-                    <p class="text-gray-600 mb-4 english-text">
+                    <p class="text-gray-600 mb-4">
                         StayNear Homes is revolutionizing Kenya's rental market through AI-powered technology. 
                         Founded in 2023, our mission is to make finding and listing rental properties seamless, 
                         transparent, and efficient for both tenants and landlords.
-                    </p>
-                    <p class="text-gray-600 mb-4 swahili-text">
-                        StayNear Homes inabadilisha soko la nyumba za kukodisha Kenya kupitia teknolojia ya AI. 
-                        Ilianzishwa mwaka 2023, lengo letu ni kufanya utaftaji na kuweka nyumba za kukodisha kuwa rahisi, 
-                        wazi na yenye ufanisi kwa wakodishi na wenyenchi.
                     </p>
                     
                     <div class="grid grid-cols-2 gap-4 mt-6">
                         <div class="flex items-center">
                             <i class="fas fa-check-circle text-blue-600 mr-2"></i>
-                            <span class="english-text">Verified Listings</span>
-                            <span class="swahili-text">Mali Zilizothibitishwa</span>
+                            Verified Listings
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check-circle text-blue-600 mr-2"></i>
-                            <span class="english-text">Local Expertise</span>
-                            <span class="swahili-text">Utaalam wa Mtaa</span>
+                            Local Expertise
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check-circle text-blue-600 mr-2"></i>
-                            <span class="english-text">24/7 Support</span>
-                            <span class="swahili-text">Msaada wa Masaa Yote</span>
+                            24/7 Support
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check-circle text-blue-600 mr-2"></i>
-                            <span class="english-text">Secure Payments</span>
-                            <span class="swahili-text">Malipo Salama</span>
+                            Secure Payments
                         </div>
                     </div>
                 </div>
@@ -474,8 +389,7 @@
     <!-- Testimonials -->
     <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800 english-text">What Our Users Say</h2>
-            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800 swahili-text">Watumiaji Wetu Wanachosema</h2>
+            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800">What Our Users Say</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-gray-50 p-6 rounded-lg">
@@ -492,8 +406,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic english-text">"Found my perfect apartment within walking distance to work in just 2 days! The 1km radius search is a game-changer."</p>
-                    <p class="text-gray-600 italic swahili-text">"Nilipata ghorofa nzuri kwa kutembea tu kwenda kazini kwa siku 2 tu! Utafutaji wa kilomita 1 umebadilisha mchezo."</p>
+                    <p class="text-gray-600 italic">"Found my perfect apartment within walking distance to work in just 2 days! The 1km radius search is a game-changer."</p>
                 </div>
                 
                 <div class="bg-gray-50 p-6 rounded-lg">
@@ -510,8 +423,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic english-text">"As a landlord, I love how quickly I can find tenants in my area. The verification process gives renters confidence."</p>
-                    <p class="text-gray-600 italic swahili-text">"Kama mwenye nyumba, napenda jinsi ninavyoweza kupata wakodishi haraka katika eneo langu. Mchakato wa uthibitishaji huwawezesha wakodishi kujiamini."</p>
+                    <p class="text-gray-600 italic">"As a landlord, I love how quickly I can find tenants in my area. The verification process gives renters confidence."</p>
                 </div>
                 
                 <div class="bg-gray-50 p-6 rounded-lg">
@@ -528,41 +440,35 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic english-text">"The Swahili option made it so easy for my parents to find a house near us. No more fake listings!"</p>
-                    <p class="text-gray-600 italic swahili-text">"Chaguo la Kiswahili liliifanya iwe rahisi kwa wazazi wangu kutafuta nyumba karibu nasi. Hakuna matangazo ya uwongo tena!"</p>
+                    <p class="text-gray-600 italic">"The Swahili option made it so easy for my parents to find a house near us. No more fake listings!"</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Contact Section -->
-    <section class="py-12 bg-gray-50">
+    <section id="contact" class="py-12 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800 english-text">Contact Us</h2>
-            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800 swahili-text">Tuwasiliane</h2>
+            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800">Contact Us</h2>
             
             <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="md:flex">
                     <div class="md:w-1/2 bg-blue-600 text-white p-8">
-                        <h3 class="text-xl font-bold mb-4 english-text">Get in Touch</h3>
-                        <h3 class="text-xl font-bold mb-4 swahili-text">Tuwasiliane</h3>
+                        <h3 class="text-xl font-bold mb-4">Get in Touch</h3>
                         
                         <div class="space-y-4">
                             <div class="flex items-start">
                                 <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-bold english-text">Address</h4>
-                                    <h4 class="font-bold swahili-text">Anwani</h4>
-                                    <p class="text-blue-100 english-text">123 Rental Plaza, Nairobi, Kenya</p>
-                                    <p class="text-blue-100 swahili-text">123 Rental Plaza, Nairobi, Kenya</p>
+                                    <h4 class="font-bold">Address</h4>
+                                    <p class="text-blue-100">123 Rental Plaza, Nairobi, Kenya</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-start">
                                 <i class="fas fa-phone-alt mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-bold english-text">Phone</h4>
-                                    <h4 class="font-bold swahili-text">Simu</h4>
+                                    <h4 class="font-bold">Phone</h4>
                                     <p class="text-blue-100">+254 700 123456</p>
                                 </div>
                             </div>
@@ -570,16 +476,14 @@
                             <div class="flex items-start">
                                 <i class="fas fa-envelope mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-bold english-text">Email</h4>
-                                    <h4 class="font-bold swahili-text">Barua Pepe</h4>
+                                    <h4 class="font-bold">Email</h4>
                                     <p class="text-blue-100">info@staynear.co.ke</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="mt-8">
-                            <h4 class="font-bold mb-2 english-text">Follow Us</h4>
-                            <h4 class="font-bold mb-2 swahili-text">Tufuate</h4>
+                            <h4 class="font-bold mb-2">Follow Us</h4>
                             <div class="flex space-x-4">
                                 <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-twitter"></i></a>
@@ -592,31 +496,26 @@
                     <div class="md:w-1/2 p-8">
                         <form>
                             <div class="mb-4">
-                                <label class="block text-gray-700 mb-2 english-text">Your Name</label>
-                                <label class="block text-gray-700 mb-2 swahili-text">Jina Lako</label>
+                                <label class="block text-gray-700 mb-2">Your Name</label>
                                 <input type="text" class="w-full p-3 border border-gray-300 rounded-md">
                             </div>
                             
                             <div class="mb-4">
-                                <label class="block text-gray-700 mb-2 english-text">Email Address</label>
-                                <label class="block text-gray-700 mb-2 swahili-text">Barua Pepe</label>
+                                <label class="block text-gray-700 mb-2">Email Address</label>
                                 <input type="email" class="w-full p-3 border border-gray-300 rounded-md">
                             </div>
                             
                             <div class="mb-4">
-                                <label class="block text-gray-700 mb-2 english-text">Subject</label>
-                                <label class="block text-gray-700 mb-2 swahili-text">Mada</label>
+                                <label class="block text-gray-700 mb-2">Subject</label>
                                 <input type="text" class="w-full p-3 border border-gray-300 rounded-md">
                             </div>
                             
                             <div class="mb-4">
-                                <label class="block text-gray-700 mb-2 english-text">Message</label>
-                                <label class="block text-gray-700 mb-2 swahili-text">Ujumbe</label>
+                                <label class="block text-gray-700 mb-2">Message</label>
                                 <textarea class="w-full p-3 border border-gray-300 rounded-md h-32"></textarea>
                             </div>
                             
-                            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 w-full english-text">Send Message</button>
-                            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 w-full swahili-text">Tuma Ujumbe</button>
+                            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 w-full">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -627,18 +526,13 @@
     <!-- Call to Action -->
     <section class="py-16 bg-blue-600 text-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6 english-text">Ready to Find Your Perfect Home?</h2>
-            <h2 class="text-3xl font-bold mb-6 swahili-text">Tayari Kupata Nyumba Bora?</h2>
+            <h2 class="text-3xl font-bold mb-6">Ready to Find Your Perfect Home?</h2>
             
-            <p class="text-xl mb-8 max-w-2xl mx-auto english-text">Join thousands of Kenyans who have found their ideal rental homes through StayNear Homes</p>
-            <p class="text-xl mb-8 max-w-2xl mx-auto swahili-text">Jiunge na maelfu ya Wakenya ambao wamepata nyumba bora za kukodisha kupitia StayNear Homes</p>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of Kenyans who have found their ideal rental homes through StayNear Homes</p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="bg-white text-blue-600 px-8 py-3 rounded-md font-bold hover:bg-gray-100 english-text">Find Nearby Rentals</button>
-                <button class="bg-white text-blue-600 px-8 py-3 rounded-md font-bold hover:bg-gray-100 swahili-text">Tafuta Nyumba Karibu</button>
-                
-                <button class="bg-transparent border-2 border-white px-8 py-3 rounded-md font-bold hover:bg-blue-700 english-text">List Your Property</button>
-                <button class="bg-transparent border-2 border-white px-8 py-3 rounded-md font-bold hover:bg-blue-700 swahili-text">Weka Mali Yako</button>
+                <button class="bg-white text-blue-600 px-8 py-3 rounded-md font-bold hover:bg-gray-100">Find Nearby Rentals</button>
+                <button class="bg-transparent border-2 border-white px-8 py-3 rounded-md font-bold hover:bg-blue-700">List Your Property</button>
             </div>
         </div>
     </section>
@@ -652,8 +546,7 @@
                         <i class="fas fa-home text-blue-400 text-2xl"></i>
                         <h3 class="text-xl font-bold">StayNear Homes</h3>
                     </div>
-                    <p class="text-gray-400 mb-4 english-text">AI-powered rental discovery platform transforming Kenya's real estate market.</p>
-                    <p class="text-gray-400 mb-4 swahili-text">Jukwaa la kutafuta nyumba za kukodisha linalotumia AI kubadilisha soko la mali Kenya.</p>
+                    <p class="text-gray-400 mb-4">AI-powered rental discovery platform transforming Kenya's real estate market.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
@@ -663,45 +556,31 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-bold mb-4 english-text">For Tenants</h4>
-                    <h4 class="text-lg font-bold mb-4 swahili-text">Kwa Wakodishi</h4>
+                    <h4 class="text-lg font-bold mb-4">For Tenants</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white english-text">Browse Listings</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white english-text">How It Works</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white english-text">Tenant Reviews</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white english-text">Rental Tips</a></li>
-                        
-                        <li><a href="#" class="text-gray-400 hover:text-white swahili-text">Angalia Mali</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white swahili-text">Inavyofanya Kazi</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white swahili-text">Maoni ya Wakodishi</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white swahili-text">Vidokezo vya Kukodisha</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Browse Listings</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tenant Reviews</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Rental Tips</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-bold mb-4 english-text">For Landlords</h4>
-                    <h4 class="text-lg font-bold mb-4 swahili-text">Kwa Wenyenchi</h4>
+                    <h4 class="text-lg font-bold mb-4">For Landlords</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white english-text">List Your Property</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white english-text">Pricing</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white english-text">Verification Process</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white english-text">Landlord Resources</a></li>
-                        
-                        <li><a href="#" class="text-gray-400 hover:text-white swahili-text">Weka Mali Yako</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white swahili-text">Bei</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white swahili-text">Mchakato wa Uthibitishaji</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white swahili-text">Rasilimali za Wenyenchi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">List Your Property</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Verification Process</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Landlord Resources</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-bold mb-4 english-text">Contact Us</h4>
-                    <h4 class="text-lg font-bold mb-4 swahili-text">Tuwasiliane</h4>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
                     <ul class="space-y-2">
                         <li class="flex items-center text-gray-400">
                             <i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>
-                            <span class="english-text">Nairobi, Kenya</span>
-                            <span class="swahili-text">Nairobi, Kenya</span>
+                            Nairobi, Kenya
                         </li>
                         <li class="flex items-center text-gray-400">
                             <i class="fas fa-phone-alt mr-2 text-blue-400"></i>
@@ -713,22 +592,19 @@
                         </li>
                     </ul>
                     
-                    <h4 class="text-lg font-bold mt-6 mb-2 english-text">Download Our App</h4>
-                    <h4 class="text-lg font-bold mt-6 mb-2 swahili-text">Pakua Programu Yetu</h4>
+                    <h4 class="text-lg font-bold mt-6 mb-2">Download Our App</h4>
                     <div class="flex space-x-2">
                         <button class="bg-black text-white px-3 py-2 rounded flex items-center">
                             <i class="fab fa-apple mr-2"></i>
                             <div class="text-left">
-                                <div class="text-xs english-text">Download on the</div>
-                                <div class="text-xs swahili-text">Pakua kwenye</div>
+                                <div class="text-xs">Download on the</div>
                                 <div class="font-bold text-sm">App Store</div>
                             </div>
                         </button>
                         <button class="bg-black text-white px-3 py-2 rounded flex items-center">
                             <i class="fab fa-google-play mr-2"></i>
                             <div class="text-left">
-                                <div class="text-xs english-text">Get it on</div>
-                                <div class="text-xs swahili-text">Pata kwenye</div>
+                                <div class="text-xs">Get it on</div>
                                 <div class="font-bold text-sm">Google Play</div>
                             </div>
                         </button>
@@ -737,15 +613,11 @@
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 english-text">© 2023 StayNear Homes. All rights reserved.</p>
-                <p class="text-gray-400 swahili-text">© 2023 StayNear Homes. Haki zote zimehifadhiwa.</p>
+                <p class="text-gray-400">© 2023 StayNear Homes. All rights reserved.</p>
                 
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-white english-text">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white english-text">Terms of Service</a>
-                    
-                    <a href="#" class="text-gray-400 hover:text-white swahili-text">Sera ya Faragha</a>
-                    <a href="#" class="text-gray-400 hover:text-white swahili-text">Masharti ya Huduma</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
                 </div>
             </div>
         </div>
