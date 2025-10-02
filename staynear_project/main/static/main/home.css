@@ -1,0 +1,48 @@
+/* Home page styles */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8fafc; /* Light gray background */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #2d3748; /* Dark gray color for headings */
+}
+
+a {
+    color: #3182ce; /* Blue color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.button {
+    background-color: #3182ce; /* Blue button */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #2b6cb0; /* Darker blue on hover */
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}

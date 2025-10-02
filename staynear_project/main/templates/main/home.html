@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- app css must be under static/main/home.css -->
+    <link rel="stylesheet" href="{% static 'main/home.css' %}">
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-home text-blue-600 text-2xl"></i>
+                <h1 class="text-xl font-bold text-blue-600">StayNear Homes</h1>
+            </div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="{% url 'home' %}" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="{% url 'listings' %}" class="text-gray-700 hover:text-blue-600 font-medium">Listings</a>
+                <a href="{% url 'landlords' %}" class="text-gray-700 hover:text-blue-600 font-medium">For Landlords</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Sign In</button>
+                
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white py-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-4xl font-bold mb-4">Find Your Perfect Rental Home in Kenya</h1>
+                <p class="text-xl mb-6">AI-powered platform connecting you with verified rentals within 1km of your preferred location</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-white text-blue-600 px-6 py-3 rounded-md font-bold hover:bg-gray-100">Find Nearby Rentals</button>
+                    <button class="bg-transparent border-2 border-white px-6 py-3 rounded-md font-bold hover:bg-blue-700">List Your Property</button>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2">
+                <div class="map-container rounded-lg shadow-xl overflow-hidden">
+                    <div class="bg-black bg-opacity-50 h-full flex items-center justify-center">
+                        <button class="bg-white text-blue-600 px-6 py-3 rounded-md font-bold hover:bg-gray-100 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Enable Location
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="bg-white py-8 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-lg shadow-md p-6 -mt-12 relative z-10">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1">
+                        <label class="block text-gray-700 mb-2">Search by location</label>
+                        <div class="relative">
+                            <input type="text" placeholder="Enter landmark or area" class="w-full p-3 border border-gray-300 rounded-md pl-10">
+                            <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1">
+                        <label class="block text-gray-700 mb-2">Property Type</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-md">
+                            <option>All Types</option>
+                            <option>Apartment</option>
+                            <option>House</option>
+                            <option>Bedsitter</option>
+                            <option>Single Room</option>
+                            <option>Commercial</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex-1">
+                        <label class="block text-gray-700 mb-2">Price Range (KSh)</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-md">
+                            <option>Any Price</option>
+                            <option>Under 5,000</option>
+                            <option>5,000 - 10,000</option>
+                            <option>10,000 - 20,000</option>
+                            <option>20,000 - 50,000</option>
+                            <option>Over 50,000</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex items-end">
+                        <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 w-full">Search</button>
+                    </div>
+                </div>
+                
+                <div class="mt-4 flex flex-wrap gap-4">
+                    <button class="flex items-center text-blue-600 bg-blue-100 px-4 py-2 rounded-full hover:bg-blue-200">
+                        <i class="fas fa-location-arrow mr-2"></i>
+                        Show rentals within 1km of me
+                    </button>
+                    
+                    <button class="flex items-center text-gray-700 bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200">
+                        <i class="fas fa-bus mr-2"></i>
+                        Near public transport
+                    </button>
+                    
+                    <button class="flex items-center text-gray-700 bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        Verified listings only
+                    </button>
+                    
+                    <button class="flex items-center text-gray-700 bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Available now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-800">Featured Properties Near You</h2>
+                
+                <a href="#" class="text-blue-600 hover:underline">View all</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Property Card 1 -->
+                <div class="property-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Property" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded-md text-xs font-bold">
+                            <span class="english-text">Verified</span>
+                            <span class="swahili-text">Imethibitishwa</span>
+                        </div>
+                        <div class="absolute bottom-2 left-2 bg-white text-gray-800 px-2 py-1 rounded-md text-xs font-bold flex items-center">
+                            <i class="fas fa-map-marker-alt mr-1 text-blue-600"></i> 0.8km
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-lg">Modern 2-Bedroom Apartment</h3>
+                            <p class="text-blue-600 font-bold">KSh 25,000</p>
+                        </div>
+                        
+                        <p class="text-gray-600 mt-1">Kilimani, Nairobi</p>
+                        
+                        <div class="flex mt-3 text-sm text-gray-500">
+                            <div class="flex items-center mr-4">
+                                <i class="fas fa-bed mr-1"></i>
+                                <span>2</span>
+                            </div>
+                            <div class="flex items-center mr-4">
+                                <i class="fas fa-bath mr-1"></i>
+                                <span>2</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-vector-square mr-1"></i>
+                                85 sqm
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 pt-3 border-t border-gray-200 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="text-gray-700">4.8 (24)</span>
+                            </div>
+                            <button class="text-blue-600 hover:underline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property Card 2 -->
+                <div class="property-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Property" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded-md text-xs font-bold">
+                            <span class="english-text">Verified</span>
+                            <span class="swahili-text">Imethibitishwa</span>
+                        </div>
+                        <div class="absolute bottom-2 left-2 bg-white text-gray-800 px-2 py-1 rounded-md text-xs font-bold flex items-center">
+                            <i class="fas fa-map-marker-alt mr-1 text-blue-600"></i> 0.5km
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-lg">Spacious 3-Bedroom House</h3>
+                            <p class="text-blue-600 font-bold">KSh 45,000</p>
+                        </div>
+                        
+                        <p class="text-gray-600 mt-1">Lavington, Nairobi</p>
+                        
+                        <div class="flex mt-3 text-sm text-gray-500">
+                            <div class="flex items-center mr-4">
+                                <i class="fas fa-bed mr-1"></i>
+                                <span>3</span>
+                            </div>
+                            <div class="flex items-center mr-4">
+                                <i class="fas fa-bath mr-1"></i>
+                                <span>2</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-vector-square mr-1"></i>
+                                120 sqm
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 pt-3 border-t border-gray-200 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="text-gray-700">4.9 (18)</span>
+                            </div>
+                            <button class="text-blue-600 hover:underline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property Card 3 -->
+                <div class="property-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1599427303058-f64c6bc8d9e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Property" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded-md text-xs font-bold">
+                            <span class="english-text">Verified</span>
+                            <span class="swahili-text">Imethibitishwa</span>
+                        </div>
+                        <div class="absolute bottom-2 left-2 bg-white text-gray-800 px-2 py-1 rounded-md text-xs font-bold flex items-center">
+                            <i class="fas fa-map-marker-alt mr-1 text-blue-600"></i> 1.2km
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-lg">Cozy Bedsitter</h3>
+                            <p class="text-blue-600 font-bold">KSh 12,000</p>
+                        </div>
+                        
+                        <p class="text-gray-600 mt-1">Westlands, Nairobi</p>
+                        
+                        <div class="flex mt-3 text-sm text-gray-500">
+                            <div class="flex items-center mr-4">
+                                <i class="fas fa-bed mr-1"></i>
+                                <span>1</span>
+                            </div>
+                            <div class="flex items-center mr-4">
+                                <i class="fas fa-bath mr-1"></i>
+                                <span>1</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-vector-square mr-1"></i>
+                                30 sqm
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 pt-3 border-t border-gray-200 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                <span class="text-gray-700">4.5 (32)</span>
+                            </div>
+                            <button class="text-blue-600 hover:underline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800">How StayNear Works</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">1. Share Your Location</h3>
+                    <p class="text-gray-600">Allow us to access your location to find rentals within 1km radius</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">2. Browse Verified Listings</h3>
+                    <p class="text-gray-600">View available properties with photos, prices, and tenant reviews</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-home text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">3. Connect & Move In</h3>
+                    <p class="text-gray-600">Contact the landlord directly and arrange viewings</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800">Why Choose StayNear Homes</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <i class="fas fa-check-circle text-blue-600 text-3xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Verified Listings</h3>
+                    <p class="text-gray-600">All properties are verified to ensure they exist and are available</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <i class="fas fa-map-marked-alt text-blue-600 text-3xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Hyper-Local Search</h3>
+                    <p class="text-gray-600">Find rentals within 1km of your preferred location</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <i class="fas fa-shield-alt text-blue-600 text-3xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Scam Protection</h3>
+                    <p class="text-gray-600">AI-powered scam detection to protect you from fraud</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <i class="fas fa-comments text-blue-600 text-3xl mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Real Tenant Reviews</h3>
+                    <p class="text-gray-600">Read honest reviews from current and past tenants</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1600880292203-75704362c4d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="About StayNear" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-800">About StayNear Homes</h2>
+                    
+                    <p class="text-gray-600 mb-4">
+                        StayNear Homes is revolutionizing Kenya's rental market through AI-powered technology. 
+                        Founded in 2023, our mission is to make finding and listing rental properties seamless, 
+                        transparent, and efficient for both tenants and landlords.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-600 mr-2"></i>
+                            Verified Listings
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-600 mr-2"></i>
+                            Local Expertise
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-600 mr-2"></i>
+                            24/7 Support
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-600 mr-2"></i>
+                            Secure Payments
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800">What Our Users Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah K.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Found my perfect apartment within walking distance to work in just 2 days! The 1km radius search is a game-changer."</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">James M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"As a landlord, I love how quickly I can find tenants in my area. The verification process gives renters confidence."</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Amina W.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The Swahili option made it so easy for my parents to find a house near us. No more fake listings!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12 text-gray-800">Contact Us</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-600 text-white p-8">
+                        <h3 class="text-xl font-bold mb-4">Get in Touch</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Address</h4>
+                                    <p class="text-blue-100">123 Rental Plaza, Nairobi, Kenya</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Phone</h4>
+                                    <p class="text-blue-100">+254 700 123456</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p class="text-blue-100">info@staynear.co.ke</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-2">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8">
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">Your Name</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-md">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">Email Address</label>
+                                <input type="email" class="w-full p-3 border border-gray-300 rounded-md">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">Subject</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-md">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2">Message</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md h-32"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 w-full">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Find Your Perfect Home?</h2>
+            
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join thousands of Kenyans who have found their ideal rental homes through StayNear Homes</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-white text-blue-600 px-8 py-3 rounded-md font-bold hover:bg-gray-100">Find Nearby Rentals</button>
+                <button class="bg-transparent border-2 border-white px-8 py-3 rounded-md font-bold hover:bg-blue-700">List Your Property</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-home text-blue-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold">StayNear Homes</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">AI-powered rental discovery platform transforming Kenya's real estate market.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">For Tenants</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Browse Listings</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tenant Reviews</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Rental Tips</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">For Landlords</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">List Your Property</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Verification Process</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Landlord Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>
+                            Nairobi, Kenya
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone-alt mr-2 text-blue-400"></i>
+                            <span>+254 700 123456</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-2 text-blue-400"></i>
+                            <span>info@staynear.co.ke</span>
+                        </li>
+                    </ul>
+                    
+                    <h4 class="text-lg font-bold mt-6 mb-2">Download Our App</h4>
+                    <div class="flex space-x-2">
+                        <button class="bg-black text-white px-3 py-2 rounded flex items-center">
+                            <i class="fab fa-apple mr-2"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Download on the</div>
+                                <div class="font-bold text-sm">App Store</div>
+                            </div>
+                        </button>
+                        <button class="bg-black text-white px-3 py-2 rounded flex items-center">
+                            <i class="fab fa-google-play mr-2"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Get it on</div>
+                                <div class="font-bold text-sm">Google Play</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2023 StayNear Homes. All rights reserved.</p>
+                
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language toggle functionality
+        const languageToggle = document.getElementById('language-toggle');
+        
+        languageToggle.addEventListener('change', function() {
+            // This is handled by the CSS classes already
+            // The toggle just needs to exist for the CSS to work
+        });
+        
+        // Simulate location access
+        document.querySelector('.map-container button').addEventListener('click', function() {
+            alert('Location access enabled. Showing rentals within 1km radius.');
+            // In a real app, this would trigger the geolocation API
+        });
+    </script>
+</body>
+</html>
