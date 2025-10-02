@@ -1,5 +1,4 @@
 from django.shortcuts import render
 
-def listings_view(request):
-    # Logic to retrieve and display listings will go here
+def listings(request):
     return render(request, 'listings/listings.html')

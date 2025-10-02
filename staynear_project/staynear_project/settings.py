@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'staynear.urls'
+ROOT_URLCONF = 'staynear_project.staynear_project.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'staynear.wsgi.application'
+WSGI_APPLICATION = 'staynear_project.wsgi.application'
 
 
 # Database
