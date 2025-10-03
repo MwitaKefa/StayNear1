@@ -19,16 +19,15 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from main import views as main_views
-from landlords import views as landlord_views
-from listings import views as listing_views
+from staynear_project.main import views as main_views
+from staynear_project.landlords import views as landlord_views
+from staynear_project.listings import views as listing_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('listings/', views.listings, name='listings'),
+    path('', main_views.home, name='home'),
+    path('listings/', listing_views.listings, name='listings'),
     path('landlords/', landlord_views.landlords, name='landlords'),
-    path('admin/', admin.site.urls),
-    path('', include('main.urls')),
-    path('landlords/', include('landlords.urls')),
+    path('', include('staynear_project.main.urls')),
+    path('landlords/', include('staynear_project.landlords.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

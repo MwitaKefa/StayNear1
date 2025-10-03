@@ -1,16 +1,18 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Property  # Assuming you will create a Property model in models.py
+from .models import Property  
 from django.contrib import messages
 
-def dashboard(request):
-    # Logic to retrieve properties for the landlord's dashboard
-    properties = Property.objects.filter(landlord=request.user)  # Assuming a relationship with the user
+def landlords(request):
+    # Temporarily remove login restriction for development
+    # properties = Property.objects.filter(landlord=request.user)  # would require auth
+    properties = Property.objects.all()  # show all properties instead
     return render(request, 'landlords/dashboard.html', {'properties': properties})
 
 def add_property(request):
+    # Temporarily remove login restriction for development
+    
     if request.method == 'POST':
-        # Logic to handle property creation
         title = request.POST.get('title')
         property_type = request.POST.get('property_type')
         location = request.POST.get('location')
@@ -22,7 +24,7 @@ def add_property(request):
         amenities = request.POST.getlist('amenities')
         images = request.FILES.getlist('images')
 
-        # Create and save the property instance
+        # Create and save the property instance (landlord left blank for now)
         property_instance = Property(
             title=title,
             property_type=property_type,
@@ -32,13 +34,11 @@ def add_property(request):
             bathrooms=bathrooms,
             size=size,
             description=description,
-            landlord=request.user  # Assuming a relationship with the user
+            landlord=None  # No logged-in user for now
         )
         property_instance.save()
 
-        # Logic to handle images and amenities can be added here
-
         messages.success(request, 'Property added successfully!')
-        return redirect('landlord_dashboard')  # Redirect to the dashboard after adding
+        return redirect('landlords')  # go back to landlords page after adding
 
     return render(request, 'landlords/add_property.html')

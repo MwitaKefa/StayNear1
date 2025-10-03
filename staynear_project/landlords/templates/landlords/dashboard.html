@@ -127,7 +127,7 @@
             <!-- Dashboard Overview -->
             <main class="p-6" id="overview">
                 <!-- Stats Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mb-8">
                     <div class="dashboard-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
                         <div class="flex justify-between items-start">
                             <div>
@@ -138,18 +138,26 @@
                         </div>
                         <p class="text-sm text-green-600 mt-2">+2 this month</p>
                     </div>
-                    
-                    <div class="dashboard-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                    <div class="dashboard-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-600">
                         <div class="flex justify-between items-start">
                             <div>
-                                <p class="text-gray-600">Monthly Revenue</p>
-                                <h3 class="text-2xl font-bold">KSh 245,000</h3>
+                                <p class="text-gray-600">Total Occupied</p>
+                                <h3 class="text-2xl font-bold">{{ total_occupied }}</h3>
                             </div>
-                            <i class="fas fa-money-bill-wave text-green-500 text-xl"></i>
+                            <i class="fas fa-door-closed text-green-600 text-xl"></i>
                         </div>
-                        <p class="text-sm text-green-600 mt-2">+15% from last month</p>
+                        <p class="text-sm text-green-600 mt-2">Currently rented</p>
                     </div>
-                    
+                    <div class="dashboard-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-red-600">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-gray-600">Total Vacant</p>
+                                <h3 class="text-2xl font-bold">{{ total_vacant }}</h3>
+                            </div>
+                            <i class="fas fa-door-open text-red-600 text-xl"></i>
+                        </div>
+                        <p class="text-sm text-red-600 mt-2">Available now</p>
+                    </div>
                     <div class="dashboard-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-yellow-500">
                         <div class="flex justify-between items-start">
                             <div>
@@ -160,7 +168,16 @@
                         </div>
                         <p class="text-sm text-green-600 mt-2">+5% this quarter</p>
                     </div>
-                    
+                    <div class="dashboard-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-gray-600">Monthly Revenue</p>
+                                <h3 class="text-2xl font-bold">KSh 245,000</h3>
+                            </div>
+                            <i class="fas fa-money-bill-wave text-green-500 text-xl"></i>
+                        </div>
+                        <p class="text-sm text-green-600 mt-2">+15% from last month</p>
+                    </div>
                     <div class="dashboard-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-red-500">
                         <div class="flex justify-between items-start">
                             <div>
@@ -172,7 +189,6 @@
                         <p class="text-sm text-red-600 mt-2">Needs attention</p>
                     </div>
                 </div>
-
                 <!-- Charts and Main Content -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                     <!-- Revenue Chart -->
