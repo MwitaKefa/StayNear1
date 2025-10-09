@@ -232,3 +232,18 @@ input:checked ~ .english-text {
     background: #2563eb;
     transform: translateY(-2px);
 }
+
+.about-image {
+  width: 100%;
+  max-width: 550px; /* keeps it from being too large */
+  height: auto;
+  border-radius: 16px; /* soft rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* cozy shadow */
+  object-fit: cover; /* ensures it scales nicely */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
